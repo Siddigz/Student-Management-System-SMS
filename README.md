@@ -1,1 +1,6 @@
-# Student-Management-System-SMS-
+# Student-Management-System-SMS
+
+
+
+Siddig Ahmed
+101332539
