@@ -49,12 +49,12 @@ A small Python program that connects to a database and performs CRUD operations 
       ```
 
 3. Create the database and table (if not done already)
-    - Create the students table according to database.sql:
+    - Create the students table according to database.sql file
 
 4. Run the application
     - Start the program using:
       ```
-      python main.py
+      py main.py
       ```
 
 ## Video demonstration
