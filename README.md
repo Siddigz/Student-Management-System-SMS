@@ -57,6 +57,6 @@ A small Python program that connects to a database and performs CRUD operations 
       ```
 
 ## Video demonstration
-YouTube: https://youtube.com
+YouTube: https://youtu.be/DaPPDI0THkE
 
 
