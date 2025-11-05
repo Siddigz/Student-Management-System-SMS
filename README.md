@@ -13,6 +13,7 @@ A small Python program that connects to a database and performs CRUD operations 
 - Delete a student record by their id
 
 ## Functions (API)
+- `connect()` — Connects to postgres server.  
 - `get_all_students()` — Retrieve and return all student records.  
 - `add_student(first_name, last_name, email, enrollment_date)` — Insert a new student.  
 - `update_student_email(student_id, new_email)` — Update email for a student by ID.  
@@ -23,10 +24,9 @@ A small Python program that connects to a database and performs CRUD operations 
     ```
     git clone https://github.com/Siddigz/Student-Management-System-SMS.git
     ```
-2. (Optional) Create and activate a virtual environment:
+2. Navigate to the directory:
     ```
-    python -m venv venv
-    source venv/bin/activate  # Windows: venv\Scripts\activate
+    cd .\Student-Management-System-SMS\
     ```
 3. Install dependencies:
     ```
@@ -35,10 +35,27 @@ A small Python program that connects to a database and performs CRUD operations 
 
 
 ## Running the Application
-test
 
-## Example Workflow
-test
+1. Prerequisites
+    - Python 3.8+ and pip
+    - PostgreSQL server running and accessible
+
+2. Configure the database connection in app.py
+      ```
+        DB_USER = "postgres"
+        DB_PASS = "sql123"
+        DB_HOST = "localhost"
+        DB_PORT = "5432" 
+      ```
+
+3. Create the database and table (if not done already)
+    - Create the students table according to database.sql:
+
+4. Run the application
+    - Start the program using:
+      ```
+      python main.py
+      ```
 
 ## Video demonstration
 YouTube: https://youtube.com

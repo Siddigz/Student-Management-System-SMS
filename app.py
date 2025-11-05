@@ -1,6 +1,6 @@
 import psycopg2 
 
-DB_NAME = "siddigz-server"
+# DB_NAME = "siddigz-server"
 DB_USER = "postgres"
 DB_PASS = "sql123"
 DB_HOST = "localhost"
@@ -14,14 +14,14 @@ def getAllStudents():
 
         students = cursor.fetchall()
 
-        print("ID | First Name | Last Name | Email | Enrollment Date")
-        print("-" * 60)
+        print("\tID | First Name | Last Name | Email | Enrollment Date")
+        print("\t" + "-" * 50)
 
         for student in students:
-            print(f"{student[0]} | {student[1]} | {student[2]} | {student[3]} | {student[4]}")
+            print(f"\t{student[0]} | {student[1]} | {student[2]} | {student[3]} | {student[4]}")
 
     except Exception as e:
-        print(f"Error: \n{e}")
+        print(f"Error: \n\t{e}")
         
 def addStudent(first_name, last_name, email, enrollment_date):
     print("\naddStudent():")
@@ -29,10 +29,10 @@ def addStudent(first_name, last_name, email, enrollment_date):
     try:
         cursor.execute(f"""INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES ('{first_name}', '{last_name}', '{email}', '{enrollment_date}')""")
 
-        print(f"Added {first_name} successfully!")
+        print(f"\tAdded {first_name} successfully!")
 
     except Exception as e:
-        print(f"Error: \n{e}")
+        print(f"Error: \n\t{e}")
 
 def updateStudentEmail(student_id, new_email): 
     print("\nupdateStudentEmail():")
@@ -40,10 +40,10 @@ def updateStudentEmail(student_id, new_email):
     try:
         cursor.execute(f"""UPDATE students SET email = '{new_email}' WHERE student_id = {student_id};""")
 
-        print(f"Updated ID_{student_id}'s email to {new_email} successfully!")
+        print(f"\tUpdated ID_{student_id}'s email to {new_email} successfully!")
 
     except Exception as e:
-        print(f"Error: \n{e}")
+        print(f"Error: \n\t{e}")
 
 def deleteStudent(student_id): 
     print("\ndeleteStudent():")
@@ -51,10 +51,10 @@ def deleteStudent(student_id):
     try:
         cursor.execute(f"""DELETE FROM students WHERE student_id = {student_id};""")
 
-        print(f"Deleted ID_{student_id} successfully!")
+        print(f"\tDeleted ID_{student_id} successfully!")
 
     except Exception as e:
-        print(f"Error: \n{e}")
+        print(f"Error: \n\t{e}")
 
 def connect():
     global connection
@@ -72,7 +72,7 @@ def connect():
 
     except psycopg2.Error as e:
 
-        print(f"\nConnection error: \n{e}")
+        print(f"\nConnection error: \n\t{e}")
         connection = None
 
     cursor = connection.cursor()
@@ -93,7 +93,6 @@ def main():
     updateStudentEmail(1, "janet@email.com")
 
     getAllStudents()
-
 
 if __name__ == "__main__":
     connect()
