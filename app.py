@@ -6,6 +6,9 @@ DB_PASS = "sql123"
 DB_HOST = "localhost"
 DB_PORT = "5432" 
 
+'''
+    Connects to a SQL server
+'''
 def connect():
     # Sets variables used throughout code to global
     global connection
@@ -30,6 +33,9 @@ def connect():
     # Defines cursor which will be used to execute server commands
     cursor = connection.cursor()
 
+'''
+    Displays all the student records to the terminal
+'''
 def getAllStudents():
     print("\ngetAllStudents():")
     
@@ -50,7 +56,10 @@ def getAllStudents():
     except Exception as e:
         # Displays error
         print(f"Error: \n\t{e}")
-        
+
+'''
+    Adds a student record to the database
+'''   
 def addStudent(first_name, last_name, email, enrollment_date):
     print("\naddStudent():")
     
@@ -64,6 +73,9 @@ def addStudent(first_name, last_name, email, enrollment_date):
         # Displays error
         print(f"Error: \n\t{e}")
 
+'''
+    Updates the email of a student in the student record
+'''
 def updateStudentEmail(student_id, new_email): 
     print("\nupdateStudentEmail():")
     
@@ -77,6 +89,9 @@ def updateStudentEmail(student_id, new_email):
         # Displays error
         print(f"Error: \n\t{e}")
 
+'''
+    Deletes a student of the student record
+'''
 def deleteStudent(student_id): 
     print("\ndeleteStudent():")
     
@@ -89,6 +104,9 @@ def deleteStudent(student_id):
     except Exception as e:
         print(f"Error: \n\t{e}")
 
+'''
+    Example Workflow
+'''
 def main():
     # Runs predefined examples
 
