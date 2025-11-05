@@ -6,6 +6,30 @@ DB_PASS = "sql123"
 DB_HOST = "localhost"
 DB_PORT = "5432" 
 
+def connect():
+    # Sets variables used throughout code to global
+    global connection
+    global cursor
+
+    try:
+        # Connects to server through provided data
+        connection = psycopg2.connect(
+            user = DB_USER,
+            password = DB_PASS,
+            host = DB_HOST,
+            port = DB_PORT
+            )
+        
+        print("\nConnected to the database successfully!")
+
+    except psycopg2.Error as e:
+        # Displays error
+        print(f"\nConnection error: \n\t{e}")
+        connection = None
+
+    # Defines cursor which will be used to execute server commands
+    cursor = connection.cursor()
+
 def getAllStudents():
     print("\ngetAllStudents():")
     
@@ -64,30 +88,6 @@ def deleteStudent(student_id):
 
     except Exception as e:
         print(f"Error: \n\t{e}")
-
-def connect():
-    # Sets variables used throughout code to global
-    global connection
-    global cursor
-
-    try:
-        # Connects to server through provided data
-        connection = psycopg2.connect(
-            user = DB_USER,
-            password = DB_PASS,
-            host = DB_HOST,
-            port = DB_PORT
-            )
-        
-        print("\nConnected to the database successfully!")
-
-    except psycopg2.Error as e:
-        # Displays error
-        print(f"\nConnection error: \n\t{e}")
-        connection = None
-
-    # Defines cursor which will be used to execute server commands
-    cursor = connection.cursor()
 
 def main():
     # Runs predefined examples
