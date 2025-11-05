@@ -1,36 +1,51 @@
+# Student Management System (SMS)
 
-Siddig Ahmed
-101332539
-COMP 3005
+**Name:** Siddig Ahmed  
+**Student ID:** 101332539  
+**Course:** COMP 3005
 
-# Student-Management-System-SMS
+A small Python program that connects to a database and performs CRUD operations for student records.
 
-Python program that connects to a database to perform CRUD operations
+## Features
+- List all students
+- Add a new student
+- Update a student's email
+- Delete a student record
+
+## Functions (API)
+- `get_all_students()` — Retrieve and return all student records.  
+- `add_student(first_name, last_name, email, enrollment_date)` — Insert a new student.  
+- `update_student_email(student_id, new_email)` — Update email for a student by ID.  
+- `delete_student(student_id)` — Remove a student record by ID.
+
+## Requirements
+- Python 3.8+  
+- Required packages (if any) listed in `requirements.txt`  
+- A database (SQLite by default — update connection settings in the code if using another DB)
+
+## Installation
+1. Clone the repository:
+    ```
+    git clone https://github.com/Siddigz/Student-Management-System-SMS.git
+    ```
+2. (Optional) Create and activate a virtual environment:
+    ```
+    python -m venv venv
+    source venv/bin/activate  # Windows: venv\Scripts\activate
+    ```
+3. Install dependencies:
+    ```
+    pip install -r requirements.txt
+    ```
 
 
+## Running the Application
+test
 
-Functions:
-getAllStudents(): Retrieves and displays all records from the students table.
-addStudent(first_name, last_name, email, enrollment_date): Inserts a new student record into the students table.
-updateStudentEmail(student_id, new_email): Updates the email address for a student with the specified student_id.
-deleteStudent(student_id): Deletes the record of the student with the specified student_id
+## Example Workflow
+test
 
+## Video demonstration
+YouTube: https://youtube.com
 
-
-Compilation:
-1
-2
-3
-
-
-
-Steps to Run:
-1
-2
-3
-
-
-
-Video demonstration:
-youtube link
 
