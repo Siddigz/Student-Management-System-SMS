@@ -55,6 +55,7 @@ def getAllStudents():
 
     except Exception as e:
         # Displays error
+        connection.rollback()
         print(f"Error: \n\t{e}")
 
 '''
@@ -71,6 +72,7 @@ def addStudent(first_name, last_name, email, enrollment_date):
 
     except Exception as e:
         # Displays error
+        connection.rollback()
         print(f"Error: \n\t{e}")
 
 '''
@@ -87,6 +89,7 @@ def updateStudentEmail(student_id, new_email):
 
     except Exception as e:
         # Displays error
+        connection.rollback()
         print(f"Error: \n\t{e}")
 
 '''
@@ -102,6 +105,8 @@ def deleteStudent(student_id):
         print(f"\tDeleted ID_{student_id} successfully!")
 
     except Exception as e:
+        # Displays Error
+        connection.rollback()
         print(f"Error: \n\t{e}")
 
 '''
@@ -135,5 +140,6 @@ if __name__ == "__main__":
 
     main()
 
-    # Closes server connection
+    # Closes server connection and commits
+    connection.commit()
     connection.close()
