@@ -6,8 +6,38 @@ DB_PASS = "sql123"
 DB_HOST = "localhost"
 DB_PORT = "5432" 
 
+
 '''
-    Connects to a SQL server
+    Loads and applies scheme
+'''
+def create_scheme(path = "database.sql"):
+    print("\ncreate_scheme():")
+
+    try:
+        # Loads the text from the database.sql file
+        scheme = open(path, "r").read()
+        print(f"\t{path} loaded!")
+
+    except Exception as e:
+        # Displays Error
+        print(f"\t{path} error: \n\t{e}")
+        return
+
+    try:
+        # Executes the commands in the database.sql file
+        cursor.execute(scheme)
+        print("\tTable created successfully!")
+    except Exception as e:
+        # Database failed to be created
+        # Most common failure reason is a table already exists with the specified name
+        print(f"\tTable creation failed: \n\t{e}")
+        try:
+            connection.rollback()
+        except Exception:
+            pass
+
+'''
+    Connects to SQL server
 '''
 def connect():
     # Sets variables used throughout code to global
@@ -137,6 +167,9 @@ def main():
 if __name__ == "__main__":
     # Opens server connection
     connect()
+
+    # Trys to load the scheme
+    create_scheme()
 
     main()
 
