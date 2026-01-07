@@ -1,8 +1,5 @@
 # Student Management System (SMS)
 
-**Name:** Siddig Ahmed  
-**Course:** COMP 3005
-
 A small Python program that connects to a database and performs CRUD operations for student records.
 
 ## Features
