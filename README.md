@@ -2,6 +2,8 @@
 
 A small Python program that connects to a database and performs CRUD operations for student records.
 
+▶️ [Watch the video demo](https://youtu.be/9N-XBiOqaWY)
+
 ## Features
 - List all students
 - Add a new student
@@ -50,10 +52,13 @@ A small Python program that connects to a database and performs CRUD operations 
 4. Run the application
     - Start the program using:
       ```
-      py main.py
+      py app.py
       ```
 
 ## Video demonstration
-YouTube: https://youtu.be/9N-XBiOqaWY
+
+[![Video demonstration on YouTube](https://img.youtube.com/vi/9N-XBiOqaWY/maxresdefault.jpg)](https://youtu.be/9N-XBiOqaWY)
+
+Watch it on YouTube: https://youtu.be/9N-XBiOqaWY
 
 
