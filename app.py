@@ -96,7 +96,11 @@ def addStudent(first_name, last_name, email, enrollment_date):
     
     try:
         # Runs INSERT command in the server
-        cursor.execute(f"""INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES ('{first_name}', '{last_name}', '{email}', '{enrollment_date}')""")
+        # Values are passed as parameters, so psycopg2 escapes them (no SQL injection)
+        cursor.execute(
+            "INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES (%s, %s, %s, %s);",
+            (first_name, last_name, email, enrollment_date),
+        )
 
         print(f"\tAdded {first_name} successfully!")
 
@@ -113,7 +117,7 @@ def updateStudentEmail(student_id, new_email):
     
     try:
         # Runs UPDATE command in the server
-        cursor.execute(f"""UPDATE students SET email = '{new_email}' WHERE student_id = {student_id};""")
+        cursor.execute("UPDATE students SET email = %s WHERE student_id = %s;", (new_email, student_id))
 
         print(f"\tUpdated ID_{student_id}'s email to {new_email} successfully!")
 
@@ -130,7 +134,7 @@ def deleteStudent(student_id):
     
     try:
         # Runs DELETE command in the server
-        cursor.execute(f"""DELETE FROM students WHERE student_id = {student_id};""")
+        cursor.execute("DELETE FROM students WHERE student_id = %s;", (student_id,))
 
         print(f"\tDeleted ID_{student_id} successfully!")
 

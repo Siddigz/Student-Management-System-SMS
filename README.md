@@ -10,12 +10,20 @@ A small Python program that connects to a database and performs CRUD operations 
 - Update a student's email by their id
 - Delete a student record by their id
 
+## Architecture
+
+![app.py functions, the SQL each one sends through psycopg2, and the students table in PostgreSQL](docs/architecture.png)
+
+Every query passes its values to psycopg2 as parameters (`%s`), so names and emails with quotes are
+stored as plain text and can't change the SQL.
+
 ## Functions (API)
-- `connect()` — Connects to postgres server.  
-- `get_all_students()` — Retrieve and return all student records.  
-- `add_student(first_name, last_name, email, enrollment_date)` — Insert a new student.  
-- `update_student_email(student_id, new_email)` — Update email for a student by ID.  
-- `delete_student(student_id)` — Remove a student record by ID.
+- `connect()`: connects to the PostgreSQL server.
+- `create_scheme(path="database.sql")`: creates the `students` table and its sample rows.
+- `getAllStudents()`: prints every student record.
+- `addStudent(first_name, last_name, email, enrollment_date)`: inserts a new student.
+- `updateStudentEmail(student_id, new_email)`: updates a student's email by ID.
+- `deleteStudent(student_id)`: removes a student record by ID.
 
 ## Installation
 1. Clone the repository:
